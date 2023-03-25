@@ -1,1 +1,5 @@
-api_key="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"
+from decouple import config
+
+
+api_key=config("API_KEY")
+
