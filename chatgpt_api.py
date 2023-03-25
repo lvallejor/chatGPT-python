@@ -1,4 +1,5 @@
 import openai  # pip install openai
+import config 
 import typer  # pip install "typer[all]"
 from rich import print  # pip install rich
 from rich.table import Table

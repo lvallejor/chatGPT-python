@@ -1,0 +1,6 @@
+El chatGpt tiene modelos entrenados de inteligencia, hay Gpt, de Dalle etc que se pueden utilizar y users
+
+pero dentro de los de Gpt3 estan unos sub modelos que tienen que ver con el chat, entre ellos davinci, turbo y el gpt3
+
+
+
