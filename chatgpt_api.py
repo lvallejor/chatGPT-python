@@ -15,6 +15,9 @@ Webs de interés:
 
 def main():
 
+    openai.api_key = config.api_key
+
+
     openai.api_key = "TU_API_KEY creada en https://platform.openai.com"
 
     print("💬 [bold green]ChatGPT API en Python[/bold green]")
@@ -35,7 +38,7 @@ def main():
         content = __prompt()
 
         if content == "new":
-            print("🆕 Nueva conversación creada")
+            print("Nueva conversación creada")
             messages = [context]
             content = __prompt()
 
