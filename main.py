@@ -9,10 +9,14 @@ app = FastAPI()
 
 openai.api_key = config.api_key
 
+# Healtcheck
+
 
 @app.get("/healthcheck", status_code=200)
 def read_root():
     return {"healthcheck": "ok"}
+
+# ChatBot ChatGPT
 
 
 @app.post("/chatbot/", status_code=200)
@@ -24,6 +28,8 @@ async def create_chat(content: str):
     response_chat = response.choices[0].message.content
     print(response_chat)
     return {"respuesta": response_chat}
+
+# Dall-E
 
 
 @app.post("/imagen/", status_code=201)
@@ -38,6 +44,8 @@ async def create_image(content: str):
     image_url = response_dallE['data'][0]['url']
     print(image_url)
     return {"Imagen": image_url}
+
+# ChatBot & Dall-E
 
 
 @app.post("/chat-image/", status_code=200)
