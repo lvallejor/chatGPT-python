@@ -32,7 +32,7 @@ async def create_image(content: str):
     response_dallE = openai.Image.create(
         prompt=contenido,
         n=1,
-        size="256x256"
+        size="512x512"
     )
     image_url = response_dallE['data'][0]['url']
     print(image_url)
