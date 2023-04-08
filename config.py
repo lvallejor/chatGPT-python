@@ -1,5 +1,3 @@
-#from decouple import config
 
 
-#api_key=config("API_KEY")
-
+api_key = "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"
