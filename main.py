@@ -12,7 +12,7 @@ openai.api_key = config.api_key
 # Healtcheck smoke test
 
 
-@app.get("/healthcheck", status_code=200)
+@app.get("/healthcheck/", status_code=200)
 def read_root():
     return {"healthcheck": "ok"}
 
