@@ -1,17 +1,25 @@
+from fastapi import FastAPI
 import openai
 import config
 from typing import Union
-
-
-from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+
+app = FastAPI()
+# Agregar el middleware de CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 openai.api_key = config.api_key
 
+
 # Healtcheck smoke test
-
-
 @app.get("/healthcheck/", status_code=200)
 def read_root():
     return {"healthcheck": "ok"}
