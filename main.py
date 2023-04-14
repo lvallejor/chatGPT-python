@@ -16,9 +16,8 @@ openai.api_key = config.api_key
 def read_root():
     return {"healthcheck": "ok"}
 
+
 # ChatBot ChatGPT
-
-
 @app.post("/chatbot/", status_code=200)
 async def create_chat(content: str):
     contenido = content
@@ -29,9 +28,8 @@ async def create_chat(content: str):
     print(response_chat)
     return {"respuesta": response_chat}
 
+
 # Dall-E
-
-
 @app.post("/imagen/", status_code=201)
 async def create_image(content: str):
     contenido = content
@@ -45,11 +43,10 @@ async def create_image(content: str):
     print(image_url)
     return {"Imagen": image_url}
 
+
 # ChatBot & Dall-E
-
-
 @app.post("/chat-image/", status_code=200)
-async def create_image(content: str):
+async def create_chat_image(content: str):
     contenido = content
     print(contenido)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
