@@ -1,1 +1,0 @@
-web: sh setup.sh && streamlite run main.py
