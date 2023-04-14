@@ -9,7 +9,7 @@ app = FastAPI()
 
 openai.api_key = config.api_key
 
-# Healtcheck
+# Healtcheck smoke test
 
 
 @app.get("/healthcheck", status_code=200)
