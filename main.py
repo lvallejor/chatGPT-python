@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+import requests
+from fastapi.exceptions import HTTPException
 import openai
 import config
 from typing import Union
@@ -69,3 +71,19 @@ async def create_chat_image(content: str):
     image_url = response_dallE['data'][0]['url']
     print(image_url)
     return {"Respuesta": response_chat, "Imagen": image_url}
+
+
+# Llamada a indicadores financieros
+@app.get("/indicadores/dolar", status_code=200)
+async def get_dolar_observado():
+    try:
+        response = requests.get("https://mindicador.cl/api/")
+        data = response.json()
+        print(data)
+        return {"value": data}
+    except requests.exceptions.HTTPError as error:
+        if response.status_code == 500:
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
+        else:
+            raise HTTPException(status_code=response.status_code, detail=error)
