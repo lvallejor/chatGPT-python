@@ -87,3 +87,21 @@ async def get_dolar_observado():
                 status_code=500, detail="Internal Server Error")
         else:
             raise HTTPException(status_code=response.status_code, detail=error)
+
+# Llamada a clima
+
+
+@app.get("/clima/", status_code=200)
+async def get_clima():
+    try:
+        response = requests.get(
+            "https://climatologia.meteochile.gob.cl/application/productos/boletinClimatologicoDiario")
+        data = response.json()
+        print(data)
+        return {"value": data}
+    except requests.exceptions.HTTPError as error:
+        if response.status_code == 500:
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
+        else:
+            raise HTTPException(status_code=response.status_code, detail=error)
